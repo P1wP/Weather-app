@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import WeatherDetails from "./WeatherDetails";
 
 
 function Weather({location}){
@@ -7,10 +8,15 @@ function Weather({location}){
     const [ weather, setWeather ] = useState(null);
     const key = "8ec9340ff0d5a9dfde366263add4dc06"
 
+    const date = new Date();
+    let day = date.getDay() - 1;
+
+    const week = ["Monday", "Tusday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
     // FETCH WEATHER DATA
     const getWeather = () => {
         
-        fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+location.latitude+'&lon='+location.longitude+'&units=metric&exclude=minutely,hourly&appid='+key)
+        fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+location.latitude+'&lon='+location.longitude+'&units=metric&exclude=minutely&appid='+key)
         .then(response => response.json())
         .then( data => setWeather(data))
         
@@ -25,11 +31,9 @@ function Weather({location}){
 
     return(
         <>
-            <p>WATHER APP FUCK YEAH</p>
-            {weather && <p>IMAGE: {weather.daily[0].weather[0].main}</p>}
-            {weather && <p>TEMP: {weather.daily[0].temp.day }</p>}
-            
-        </>
+       <WeatherDetails weather={weather} day={week[day]} />
+       <p className="ViewMore">More</p>
+       </>
     )
 }
 

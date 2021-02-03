@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Heading from "./Heading";
 import Location from "./Location";
-import Weather from "./Weather";
+import Weather from "./weather/Weather";
 
 
 

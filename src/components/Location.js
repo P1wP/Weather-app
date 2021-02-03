@@ -5,10 +5,10 @@ function Location ({change, location}){
     const final = location.city + ", " + location.state;
 
     return(
-        <>
-            <h3>Loaction: {final}</h3>
+        <div className="Location">
+            <h3 className="Location__text">Loaction: {final}</h3>
             
-        </>
+        </div>
     )
 
 }

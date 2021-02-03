@@ -1,4 +1,4 @@
-import './App.css';
+import './SASS/App.sass';
 import WeatherApp from "./components/WeatherApp"
 
 
