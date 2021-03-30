@@ -3,7 +3,8 @@ import Heading from "./Heading";
 import Location from "./Location";
 import Weather from "./weather/Weather";
 
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 
 function WeatherApp(){
@@ -30,12 +31,18 @@ function WeatherApp(){
     console.log(location)
 
     return(
-        <>
-            <Heading heading = "Weather-App" />
-            {location ? <Location location = {location} /> : <Location location="Select locaton" />}
-            {location && <Weather location={location} />}
-           
-        </>
+        <Row>
+            <Col sm={12}>
+                <Heading heading = "Weather-App" />
+            </Col>
+            <Col sm={12}>
+                {location ? <Location location = {location} /> : <Location location="Select locaton" />}
+            </Col>
+            <Col sm={12}>
+                {location && <Weather location={location} />}
+            </Col>
+            
+        </Row>
     )
 }
 

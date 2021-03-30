@@ -8,10 +8,7 @@ function Weather({location}){
     const [ weather, setWeather ] = useState(null);
     const key = "8ec9340ff0d5a9dfde366263add4dc06"
 
-    const date = new Date();
-    let day = date.getDay() - 1;
-
-    const week = ["Monday", "Tusday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+ 
 
     // FETCH WEATHER DATA
     const getWeather = () => {
@@ -31,8 +28,8 @@ function Weather({location}){
 
     return(
         <>
-       <WeatherDetails weather={weather} day={week[day]} />
-       <p className="ViewMore">More</p>
+       <WeatherDetails weather={weather} />
+        
        </>
     )
 }
